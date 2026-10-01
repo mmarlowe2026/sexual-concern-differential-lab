@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>PSY 210 Sexual Concern Differential Lab</title>
+
+<meta
+  name="description"
+  content="Consent-centered clinical reasoning lab for PSY 210 Week 11"
+>
+
+<style>
+:root {
+  --navy: #172b4d;
+  --plum: #68466f;
+  --violet: #8a6092;
+  --rose: #f6edf5;
+  --blue: #eaf3f8;
+  --gold: #d6a52a;
+  --ink: #202938;
+  --muted: #616c7b;
+  --line: #d7dce5;
+  --white: #ffffff;
+  --danger: #922b3e;
+  --success: #176b4d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(#f3f0f5, #f7f9fb 34rem);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.58;
+}
+
+.wrap {
+  width: min(1050px, calc(100% - 2rem));
+  margin: auto;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 3.2rem 1rem 4.8rem;
+  color: var(--white);
+  background: linear-gradient(
+    130deg,
+    var(--navy),
+    #314a70 52%,
+    var(--plum)
+  );
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  right: -80px;
+  top: -130px;
+  border: 52px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #f0c9ed;
+  font-size: 0.84rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 800px;
+  margin: 0.3rem 0;
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.hero p:last-child {
+  max-width: 710px;
+  color: #f0edf3;
+  font-size: 1.1rem;
+}
+
+main {
+  position: relative;
+  margin-top: -2.3rem;
+}
+
+.notice,
+.progress,
+.panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 30px rgba(23, 43, 77, 0.12);
+}
+
+.notice {
+  padding: 1rem 1.15rem;
+  border-left: 6px solid var(--gold);
+  border-radius: 12px;
+  background: #fff9e9;
+}
+
+.notice p {
+  margin: 0;
+}
+
+.progress {
+  margin: 1rem 0;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+}
+
+.prow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.track {
+  height: 10px;
+  margin-top: 0.65rem;
+  overflow: hidden;
+  background: #e8eaf0;
+  border-radius: 99px;
+}
+
+.bar {
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(90deg, var(--plum), #a66b9e);
+  transition: width 0.2s;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.55rem;
+  margin: 1rem 0;
+}
+
+.tab,
+.btn {
+  border-radius: 9px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.tab {
+  padding: 0.75rem 0.4rem;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid #b8c2cf;
+}
+
+.tab:hover {
+  background: var(--rose);
+  border-color: var(--plum);
+}
+
+.tab.active {
+  color: var(--white);
+  background: var(--plum);
+  border-color: var(--plum);
+}
+
+.panel {
+  display: none;
+  margin-bottom: 1.5rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-radius: 18px;
+}
+
+.panel.active {
+  display: block;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--plum);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.panel h2 {
+  margin: 0.2rem 0 0.6rem;
+  color: var(--navy);
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+}
+
+.lead {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.case {
+  margin: 1rem 0;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, var(--rose), var(--blue));
+  border-left: 6px solid var(--plum);
+  border-radius: 10px;
+}
+
+.case h3 {
+  margin: 0;
+  color: var(--navy);
+}
+
+.case p {
+  margin: 0.5rem 0;
+}
+
+.boundary {
+  padding: 0.9rem 1rem;
+  background: #fff2ef;
+  border: 1px solid #ecc7c0;
+  border-radius: 8px;
+  color: #63332c;
+}
+
+.gates {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.gate {
+  padding: 0.85rem;
+  background: #faf8fb;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--plum);
+  border-radius: 9px;
+}
+
+.gate strong {
+  display: block;
+  color: var(--navy);
+}
+
+.field {
+  display: block;
+  margin: 1.15rem 0;
+}
+
+.fhead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ftitle {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.count,
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hint {
+  display: block;
+  margin: 0.25rem 0 0.45rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 125px;
+  padding: 0.85rem;
+  border: 1px solid #9aa9b8;
+  border-radius: 8px;
+  background: #fcfcfd;
+  font: inherit;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.btn {
+  padding: 0.72rem 1rem;
+  border: 0;
+  color: var(--white);
+  background: var(--navy);
+}
+
+.btn:hover {
+  background: var(--plum);
+}
+
+.secondary {
+  color: var(--navy);
+  background: #e9edf2;
+}
+
+.danger {
+  background: var(--danger);
+}
+
+button:focus-visible,
+textarea:focus {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.summary {
+  min-height: 400px;
+  padding: 1rem;
+  white-space: pre-wrap;
+  background: #f8f9fb;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.status {
+  min-height: 1.5rem;
+  color: var(--success);
+  font-weight: 800;
+}
+
+footer {
+  padding: 1rem 1rem 2.5rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tabs .tab:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .gates {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 440px) {
+  .tabs,
+  .gates {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs .tab:last-child {
+    grid-column: auto;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">
+      PSY 210 · Week 11 Clinical Reasoning Lab
+    </p>
+
+    <h1>Sexual Concern Differential Lab</h1>
+
+    <p>
+      Distinguish difference from disorder through consent, distress,
+      impairment, harm, context, and professional humility.
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="notice">
+    <p>
+      <strong>Privacy boundary:</strong>
+      Use only the fictional Nia Thompson case. Personal sexual history,
+      identity, trauma, beliefs, and relationship information are never
+      required. Responses remain in this browser.
+    </p>
+  </div>
+
+  <div class="progress">
+    <div class="prow">
+      <span id="stepText">Step 1 of 5</span>
+      <span id="doneText">0 of 10 prompts started</span>
+    </div>
+
+    <div class="track" aria-hidden="true">
+      <div class="bar" id="bar"></div>
+    </div>
+  </div>
+
+  <nav class="tabs" aria-label="Lab steps">
+    <button type="button" class="tab active" data-step="0">
+      1 · Case
+    </button>
+
+    <button type="button" class="tab" data-step="1">
+      2 · Evidence
+    </button>
+
+    <button type="button" class="tab" data-step="2">
+      3 · Gate
+    </button>
+
+    <button type="button" class="tab" data-step="3">
+      4 · Differential
+    </button>
+
+    <button type="button" class="tab" data-step="4">
+      5 · Care Map
+    </button>
+  </nav>
+
+  <!-- STEP 1 -->
+  <section class="panel active">
+    <p class="kicker">Step 1 · Encounter the case</p>
+
+    <h2>Begin With Permission and Precision</h2>
+
+    <p class="lead">
+      Read for evidence. Do not diagnose, moralize, or assume that
+      difference means dysfunction.
+    </p>
+
+    <div class="case">
+      <h3>Nia Thompson: Week 11 Update</h3>
+
+      <p>
+        Nia says her sleep and stress have improved somewhat, but she is
+        concerned about a six-month decrease in sexual interest and
+        discomfort during intimacy. She reports that the concern began
+        after a medication change and has become a source of tension with
+        her partner, who worries Nia is no longer attracted to them.
+      </p>
+
+      <p>
+        Nia says she values the relationship and wants closeness, but she
+        sometimes agrees to sexual activity to avoid conflict. She has not
+        discussed the discomfort with a medical provider because prior
+        health visits felt rushed and judgmental. She identifies stress,
+        fatigue, body-image concerns, and expectations from her faith
+        community as possible influences.
+      </p>
+
+      <p>
+        Nia asks whether something is “wrong” with her. The case does not
+        provide information about medical conditions, medication type,
+        pain characteristics, consent conversations, trauma history,
+        relationship safety, duration at prior baseline, or Nia’s own
+        preferred outcome.
+      </p>
+    </div>
+
+    <div class="boundary">
+      <strong>Professional boundary:</strong>
+      This fictional update supports respectful assessment and a
+      multidomain differential. It does not establish a sexual
+      dysfunction, relationship diagnosis, trauma-related condition,
+      or any other disorder.
+    </div>
+
+    <div class="gates">
+      <div class="gate">
+        <strong>Consent</strong>
+        Voluntary, informed, ongoing, and free from coercion.
+      </div>
+
+      <div class="gate">
+        <strong>Distress</strong>
+        Source, meaning, context, and whose distress.
+      </div>
+
+      <div class="gate">
+        <strong>Impairment</strong>
+        Meaningful effects on functioning or relationships.
+      </div>
+
+      <div class="gate">
+        <strong>Harm</strong>
+        Safety, coercion, exploitation, health, and legal risk.
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn" data-next="1">
+        Separate Evidence
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="panel">
+    <p class="kicker">Step 2 · Evidence before interpretation</p>
+
+    <h2>Separate Facts From Assumptions</h2>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">Directly Supported Evidence</span>
+        <span class="count" id="factsCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        List only what Nia directly reports or what the case explicitly
+        states.
+      </span>
+
+      <textarea
+        id="facts"
+        placeholder="The case directly supports..."
+      ></textarea>
+    </label>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">Assumptions to Avoid</span>
+        <span class="count" id="assumptionsCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Identify conclusions that cannot yet be supported about diagnosis,
+        attraction, identity, relationships, trauma, or motivation.
+      </span>
+
+      <textarea
+        id="assumptions"
+        placeholder="The case does not establish..."
+      ></textarea>
+    </label>
+
+    <div class="actions">
+      <button type="button" class="btn secondary" data-back="0">
+        Back
+      </button>
+
+      <button type="button" class="btn" data-next="2">
+        Apply the Gate
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="panel">
+    <p class="kicker">Step 3 · Apply the four-question gate</p>
+
+    <h2>Consent, Distress, Impairment, and Harm</h2>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">Consent and Safety</span>
+        <span class="count" id="consentCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        What is supported, what is concerning, and what must be asked
+        about voluntary consent, pressure, capacity, relationship safety,
+        and medical needs?
+      </span>
+
+      <textarea id="consent"></textarea>
+    </label>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">Distress and Its Source</span>
+        <span class="count" id="distressCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Separate Nia’s experience from partner conflict, pain, stigma,
+        cultural expectations, external judgment, and fear of care.
+      </span>
+
+      <textarea id="distress"></textarea>
+    </label>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">
+          Impairment and Client-Defined Goals
+        </span>
+
+        <span class="count" id="impairmentCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Describe functional effects and what Nia, rather than the
+        clinician or partner, wants to change.
+      </span>
+
+      <textarea id="impairment"></textarea>
+    </label>
+
+    <div class="actions">
+      <button type="button" class="btn secondary" data-back="1">
+        Back
+      </button>
+
+      <button type="button" class="btn" data-next="3">
+        Build the Differential
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="panel">
+    <p class="kicker">Step 4 · Build a multidomain differential</p>
+
+    <h2>Keep Plausible Alternatives Visible</h2>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">
+          Medical, Medication, and Substance Factors
+        </span>
+
+        <span class="count" id="medicalCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Identify relevant timing, health, pain, reproductive, sleep,
+        medication, and substance questions without diagnosing.
+      </span>
+
+      <textarea id="medical"></textarea>
+    </label>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">
+          Psychological, Relational, Cultural, and Identity Context
+        </span>
+
+        <span class="count" id="contextCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Consider stress, mood, anxiety, trauma only when relevant,
+        communication, relationship dynamics, body image, faith, stigma,
+        discrimination, support, and strengths.
+      </span>
+
+      <textarea id="context"></textarea>
+    </label>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">
+          High-Value Permission-Based Questions
+        </span>
+
+        <span class="count" id="questionsCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Write focused questions that explain purpose, ask permission,
+        protect privacy, and avoid unnecessary intimate detail.
+      </span>
+
+      <textarea id="questions"></textarea>
+    </label>
+
+    <div class="actions">
+      <button type="button" class="btn secondary" data-back="2">
+        Back
+      </button>
+
+      <button type="button" class="btn" data-next="4">
+        Create the Care Map
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section class="panel">
+    <p class="kicker">Step 5 · Formulate and export</p>
+
+    <h2>Develop a Collaborative Care Map</h2>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">Provisional Formulation</span>
+        <span class="count" id="formulationCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Integrate supported evidence, alternatives, protective factors,
+        and uncertainty without assigning a diagnosis.
+      </span>
+
+      <textarea id="formulation"></textarea>
+    </label>
+
+    <label class="field">
+      <span class="fhead">
+        <span class="ftitle">Matched Supports and Next Steps</span>
+        <span class="count" id="careCount">0 words</span>
+      </span>
+
+      <span class="hint">
+        Identify proportionate medical, psychological, relational,
+        sexual-health, safety, and follow-up options while preserving
+        choice.
+      </span>
+
+      <textarea id="care"></textarea>
+    </label>
+
+    <pre
+      class="summary"
+      id="summary"
+      tabindex="0"
+      aria-label="Completed lab summary"
+    ></pre>
+
+    <p class="status" id="status" aria-live="polite"></p>
+
+    <div class="actions">
+      <button type="button" class="btn secondary" data-back="3">
+        Back
+      </button>
+
+      <button type="button" class="btn" id="copy">
+        Copy Summary
+      </button>
+
+      <button type="button" class="btn" id="download">
+        Download TXT
+      </button>
+
+      <button type="button" class="btn danger" id="reset">
+        Reset Lab
+      </button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  This educational lab supports clinical reasoning. It does not provide
+  diagnosis, assessment, or treatment advice.
+</footer>
+
+<script>
+const storageKey =
+  "psy210-w11-sexual-concern-differential-v1";
+
+const fieldIds = [
+  "facts",
+  "assumptions",
+  "consent",
+  "distress",
+  "impairment",
+  "medical",
+  "context",
+  "questions",
+  "formulation",
+  "care"
+];
+
+const blankState = Object.fromEntries(
+  fieldIds.map((fieldId) => [fieldId, ""])
+);
+
+let labState = loadState();
+let currentStep = 0;
+
+function loadState() {
+  try {
+    const savedState = JSON.parse(
+      localStorage.getItem(storageKey) || "{}"
+    );
+
+    return {
+      ...blankState,
+      ...savedState
+    };
+  } catch (error) {
+    return {
+      ...blankState
+    };
+  }
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify(labState)
+    );
+  } catch (error) {
+    // The activity remains usable if browser storage is unavailable.
+  }
+}
+
+function countWords(value) {
+  const trimmedValue = value.trim();
+
+  if (!trimmedValue) {
+    return 0;
+  }
+
+  return trimmedValue.split(/\s+/).length;
+}
+
+function refreshProgress() {
+  let startedPrompts = 0;
+
+  fieldIds.forEach((fieldId) => {
+    const field = document.getElementById(fieldId);
+    const counter = document.getElementById(
+      fieldId + "Count"
+    );
+
+    counter.textContent =
+      countWords(field.value) + " words";
+
+    if (field.value.trim()) {
+      startedPrompts += 1;
+    }
+  });
+
+  document.getElementById("doneText").textContent =
+    `${startedPrompts} of ${fieldIds.length} prompts started`;
+
+  if (currentStep === 4) {
+    buildSummary();
+  }
+}
+
+function showStep(stepNumber) {
+  currentStep = Math.max(
+    0,
+    Math.min(4, stepNumber)
+  );
+
+  document
+    .querySelectorAll(".panel")
+    .forEach((panel, index) => {
+      panel.classList.toggle(
+        "active",
+        index === currentStep
+      );
+    });
+
+  document
+    .querySelectorAll(".tab")
+    .forEach((button, index) => {
+      button.classList.toggle(
+        "active",
+        index === currentStep
+      );
+
+      if (index === currentStep) {
+        button.setAttribute(
+          "aria-current",
+          "step"
+        );
+      } else {
+        button.removeAttribute("aria-current");
+      }
+    });
+
+  document.getElementById("stepText").textContent =
+    `Step ${currentStep + 1} of 5`;
+
+  document.getElementById("bar").style.width =
+    `${(currentStep + 1) * 20}%`;
+
+  refreshProgress();
+
+  window.scrollTo({
+    top: document.querySelector("main").offsetTop - 10,
+    behavior: "smooth"
+  });
+}
+
+function displayValue(value) {
+  return value.trim() || "Not yet entered";
+}
+
+function buildSummary() {
+  const summary = `
+PSY 210 SEXUAL CONCERN DIFFERENTIAL LAB
+CASE: Nia Thompson
+
+DIRECTLY SUPPORTED EVIDENCE
+${displayValue(labState.facts)}
+
+ASSUMPTIONS TO AVOID
+${displayValue(labState.assumptions)}
+
+CONSENT AND SAFETY
+${displayValue(labState.consent)}
+
+DISTRESS AND ITS SOURCE
+${displayValue(labState.distress)}
+
+IMPAIRMENT AND CLIENT-DEFINED GOALS
+${displayValue(labState.impairment)}
+
+MEDICAL, MEDICATION, AND SUBSTANCE FACTORS
+${displayValue(labState.medical)}
+
+PSYCHOLOGICAL, RELATIONAL, CULTURAL, AND IDENTITY CONTEXT
+${displayValue(labState.context)}
+
+PERMISSION-BASED QUESTIONS
+${displayValue(labState.questions)}
+
+PROVISIONAL FORMULATION
+${displayValue(labState.formulation)}
+
+MATCHED SUPPORTS AND NEXT STEPS
+${displayValue(labState.care)}
+
+PROFESSIONAL BOUNDARY
+This analysis organizes provisional evidence, alternatives, context,
+strengths, and missing information. It does not establish a diagnosis.
+  `.trim();
+
+  document.getElementById("summary").textContent =
+    summary;
+
+  return summary;
+}
+
+fieldIds.forEach((fieldId) => {
+  const field = document.getElementById(fieldId);
+
+  field.value = labState[fieldId];
+
+  field.addEventListener("input", () => {
+    labState[fieldId] = field.value;
+    saveState();
+    refreshProgress();
+  });
+});
+
+document
+  .querySelectorAll(".tab")
+  .forEach((button) => {
+    button.addEventListener("click", () => {
+      showStep(Number(button.dataset.step));
+    });
+  });
+
+document
+  .querySelectorAll("[data-next]")
+  .forEach((button) => {
+    button.addEventListener("click", () => {
+      showStep(Number(button.dataset.next));
+    });
+  });
+
+document
+  .querySelectorAll("[data-back]")
+  .forEach((button) => {
+    button.addEventListener("click", () => {
+      showStep(Number(button.dataset.back));
+    });
+  });
+
+document
+  .getElementById("copy")
+  .addEventListener("click", async () => {
+    const status =
+      document.getElementById("status");
+
+    try {
+      await navigator.clipboard.writeText(
+        buildSummary()
+      );
+
+      status.textContent =
+        "Your lab summary was copied.";
+    } catch (error) {
+      status.textContent =
+        "Copying was blocked. Select the summary and copy it manually.";
+    }
+  });
+
+document
+  .getElementById("download")
+  .addEventListener("click", () => {
+    const file = new Blob(
+      [buildSummary()],
+      {
+        type: "text/plain"
+      }
+    );
+
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(file);
+    link.download =
+      "PSY210_Sexual_Concern_Differential_Lab.txt";
+
+    link.click();
+
+    setTimeout(() => {
+      URL.revokeObjectURL(link.href);
+    }, 0);
+
+    document.getElementById("status").textContent =
+      "Your lab summary was downloaded.";
+  });
+
+document
+  .getElementById("reset")
+  .addEventListener("click", () => {
+    const confirmed = window.confirm(
+      "Erase all responses saved for this lab in this browser?"
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    localStorage.removeItem(storageKey);
+    window.location.reload();
+  });
+
+showStep(0);
+</script>
+</body>
+</html>
